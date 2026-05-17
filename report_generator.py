@@ -7,7 +7,7 @@ def average (backend_marks, frontend_marks, design_marks) :
     calculate = round(((backend_marks + frontend_marks + design_marks) / 3),2)
     return calculate
 
-def grade (grademark):
+def grade (average):
     grademark = average (backend_marks, frontend_marks, design_marks) 
     properGradeMark = round(grademark,0)
     if properGradeMark >= 80 :
@@ -22,12 +22,17 @@ def grade (grademark):
         return "E"
 
 average (backend_marks, frontend_marks, design_marks)
-output = {
-    'name':name,
-    'Backend': backend_marks,
-    'Frontend': frontend_marks, 
-    'Design': design_marks,
-    'average': average (backend_marks, frontend_marks, design_marks) ,
-    'Grade': grade(average)
-    }
-print(output)
+grade(average)
+
+def student_report (name, backend_marks, frontend_marks, design_marks, average, grade):
+    output = {
+        'name':name,
+        'Backend': backend_marks,
+        'Frontend': frontend_marks, 
+        'Design': design_marks,
+        'average': average (backend_marks, frontend_marks, design_marks) ,
+        'Grade': grade(average)
+        }
+    return output 
+
+print(student_report (name, backend_marks, frontend_marks, design_marks, average, grade))
